@@ -4,11 +4,9 @@ import dbConnect from "@/lib/dbConnect";
 import userModel from "@/model/User";
 import { User } from "next-auth";
 import mongoose from "mongoose";
-import { use } from "react";
-import { success } from "zod";
 
 
-export async function GET(request: Request) {
+export async function GET() {
     await dbConnect();
     const session = await getServerSession(authOptions);
     const user: User = session?.user as User
